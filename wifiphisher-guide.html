@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل wifiphisher التقني للمبتدئين</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Tahoma', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e6e6e6;
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(25, 25, 45, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            color: #00ff88;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        h2 {
+            color: #00d4ff;
+            border-right: 5px solid #00d4ff;
+            padding-right: 15px;
+            margin: 30px 0 20px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        h2:hover {
+            color: #00ff88;
+            border-right-color: #00ff88;
+        }
+
+        h3 {
+            color: #ffaa00;
+            margin: 20px 0 10px 0;
+        }
+
+        .section {
+            background: rgba(30, 30, 50, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            border-color: #00d4ff;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+        }
+
+        .command-box {
+            background: #0d0d1a;
+            border: 1px solid #00ff88;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            color: #00ff88;
+            direction: ltr;
+            text-align: left;
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .command-box::before {
+            content: "$ ";
+            color: #ffaa00;
+            font-weight: bold;
+        }
+
+        .example-box {
+            background: rgba(0, 255, 136, 0.1);
+            border-left: 4px solid #00ff88;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box {
+            background: rgba(255, 0, 0, 0.1);
+            border-left: 4px solid #ff0000;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .technical-box {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid #00d4ff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .option-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .option-table th {
+            background: #00d4ff;
+            color: #0d0d1a;
+            padding: 12px;
+            text-align: right;
+        }
+
+        .option-table td {
+            padding: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        .option-table tr:hover {
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .button {
+            background: linear-gradient(45deg, #00ff88, #00d4ff);
+            color: #0d0d1a;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .expand-icon {
+            display: inline-block;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .expanded .expand-icon {
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎣 دليل wifiphisher التقني والتكتيكي</h1>
+        
+        <div class="warning-box" style="font-size: 1.2em; text-align: center;">
+            <strong>⚠️ تحذير قانوني وأخلاقي:</strong> هذه الأداة للاختبار المصرح به فقط. استخدامها على شبكات دون إذن صريح يعتبر جريمة في معظم الدول. هدف هذا الدليل التعليمي فقط.
+        </div>
+
+        <div class="section">
+            <h3>ما هو wifiphisher؟</h3>
+            <p><strong>wifiphisher</strong> هو أداة هجوم احتيال (phishing) للشبكات اللاسلكية، تُنشئ نقطة وصول (AP) مزيفة وتقدم صفحات phishing لسرقة بيانات الاعتماد. على عكس wifite2 التي تهاجم التشفير، تهجم wifiphisher على العنصر البشري.</p>
+            
+            <div class="technical-box">
+                <h4>🧠 الآلية الأساسية:</h4>
+                <p>تستخدم <strong>hostapd</strong> لإنشاء AP مزيف، <strong>dnsmasq</strong> لتعيين DHCP وDNS، و<strong>iptables</strong> لإعادة توجيه حركة المرور. تقوم بـ deauthentication attack على الشبكة المستهدفة لإجبار العملاء على الاتصال بالشبكة المزيفة.</p>
+            </div>
+        </div>
+
+        <h2 onclick="toggleSection('interfaces')">
+            <span class="expand-icon">▶</span> إدارة الواجهات والشبكات
+        </h2>
+        <div id="interfaces" class="section hidden">
+            <h3>🔌 فهم أوضاع الواجهات</h3>
+            
+            <div class="section">
+                <h4>-i, --interface INTERFACE - واجهة مركبة</h4>
+                <div class="command-box">wifiphisher -i wlan0</div>
+                <p>تستخدم واجهة واحدة لكل شيء: AP + Monitor mode + Deauth. هذه الواجهة يجب أن تدعم:</p>
+                <ul style="margin: 10px 20px;">
+                    <li><strong>AP mode:</strong> من خلال hostapd (nl80211 driver)</li>
+                    <li><strong>Monitor mode:</strong> لإرسال حزم deauth</li>
+                    <li><strong>Channel hopping:</strong> للتبديل بين قناة الهدف وقناة AP المزيف</li>
+                </ul>
+                <p>تستخدم تقنية <code>mac80211</code> لإنشاء virtual interface: <code>wlan0_ap</code> و<code>wlan0_mon</code> على نفس الجهاز المادي.</p>
+            </div>
+
+            <div class="section">
+                <h4>-eI, --extensionsinterface - فصل Deauth عن AP</h4>
+                <div class="command-box">wifiphisher -i wlan0 -eI wlan1</div>
+                <p><strong>الآلية:</strong> تستخدم <code>wlan0</code> لـ AP فقط، و<code>wlan1</code> لـ deauth attacks. هذا يجنب:</p>
+                <ul style="margin: 10px 20px;">
+                    <li>تداخل القنوات (AP على قناة 6، deauth على قناة 1-11)</li>
+                    <li>سقوط AP عند إرسال حزم deauth مكثفة</li>
+                    <li>زيادة سرعة deauth (يمكن إرسال 1000 حزمة/ثانية دون تأثير على AP)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h4>-aI, --apinterface - AP فقط</h4>
+                <div class="command-box">wifiphisher -aI wlan0 -eI wlan1</div>
+                <p>تحدد واجهة AP بشكل صريح. مفيد عندما تريد AP ثابت على قناة معينة بينما تستخدم واجهات أخرى لـ deauth. تستخدم <code>hostapd -i wlan0 -c /tmp/hostapd.conf</code> مباشرةً.</p>
+            </div>
+
+            <div class="section">
+                <h4>-iI, --internetinterface - إعادة توجيه الإنترنت</h4>
+                <div class="command-box">wifiphisher -iI eth0</div>
+                <p><strong>الآلية التقنية:</strong> تنشئ NAT باستخدام iptables:</p>
+                <div class="command-box" style="color: #00ff88;">
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE<br>
+iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT<br>
+sysctl -w net.ipv4.ip_forward=1
+                </div>
+                <p>تجعل الضحية تعتقد أنها متصلة بإنترنت حقيقي، مما يزيد من نسبة الثقة. يمكنك استخدام ppp0 (USB modem) أو eth0 (Ethernet) أو wlan2 (شبكة أخرى).</p>
+                
+                <div class="example-box">
+                    <strong>💡 سيناريو عملي:</strong>
+                    <div class="command-box">wifiphisher -i wlan0 -iI eth0 -e "Starbucks_WiFi"</div>
+                    <p>تنشئ AP مزيف باسم Starbucks، وترسل حركة المرور عبر Ethernet الخاص بك. الضحية تشاهد إنترنت حقيقي وتثق بالشبكة!</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>-pI, --protectinterface - حماية الواجهات</h4>
+                <div class="command-box">wifiphisher -pI wlan2 wlan3</div>
+                <p><strong>ما تفعله:</strong> تستخدم <code>nmcli dev set [iface] managed yes</code> لمنع NetworkManager من لمس هذه الواجهات. مفيد عندما تريد حفظ واجهات معينة لمهام أخرى (مثل التواصل بشبكة VPN).</p>
+            </div>
+
+            <div class="section">
+                <h4>-iAM/-iEM - تخصيص MAC addresses</h4>
+                <div class="command-box">wifiphisher -iAM 00:AA:BB:CC:DD:EE -e "AT&amp;T_WiFi"</div>
+                <p><strong>التكتيك:</strong> تستخدم MAC address لشركة معروفة (Cisco 00:11:22, Netgear 00:1B:2F). هذا يزيد من نسبة الثقة لأن الضحية يرى MAC vendor معروف.</p>
+                
+                <div class="technical-box">
+                    <h4>🔍 كيف يتحقق النظام من MAC vendor:</h4>
+                    <ul>
+                        <li>Windows: <code>arp -a</code> يظهر vendor name</li>
+                        <li>Android: WiFi settings → Advanced → MAC address</li>
+                        <li>iOS: لا يظهر، لكن بعض تطبيقات Network Analyzer تظهره</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2 onclick="toggleSection('attacks')">
+            <span class="expand-icon">▶</span> إعدادات الهجوم والتمويه
+        </h2>
+        <div id="attacks" class="section hidden">
+            <h3>⚔️ آليات Deauthentication وKARMA</h3>
+            
+            <div class="section">
+                <h4>-nD, --nodeauth - تخطي Deauth</h4>
+                <div class="command-box">wifiphisher -nD</div>
+                <p><strong>متى تستخدمه:</strong> عندما تريد AP مزيف فقط دون إجبار العملاء. مفيد في:</p>
+                <ul style="margin: 10px 20px;">
+                    <li>اختبار الاحتيال السلبي (waiting for victims)</li>
+                    <li>بيئات لا تسمح بالتدخل النشط (قانونيًا)</li>
+                    <li>تجنب اكتشاف IDS الذي يراقب Deauth floods</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h4>-dC, --deauth-channels - تحديد قنوات Deauth</h4>
+                <div class="command-box">wifiphisher -dC 1,6,11</div>
+                <p><strong>الآلية:</strong> تستخدم <code>airodump-ng --channel 1,6,11</code> لمسح هذه القنوات فقط. بعد العثور على أهداف، ترسل <code>aireplay-ng -0 5 -a [BSSID] -c [CLIENT]</code> على كل قناة. هذا يقلل وقت المسح من 2 دقيقة إلى 30 ثانية.</p>
+            </div>
+
+            <div class="section">
+                <h4>-e, --essid - AP مزيف مسبق التعريف</h4>
+                <div class="command-box">wifiphisher -e "Free_Airport_WiFi"</div>
+                <p><strong>التكتيك:</strong> تتخطى مرحلة اختيار AP. تستخدم هذا ESSID في <code>hostapd.conf</code>. مفيد في سكريبتات أتمتة أو عندما تريد هجومًا موجهًا على شبكة معروفة.</p>
+                
+                <div class="example-box">
+                    <strong>💡 الهجوم المزدوج:</strong>
+                    <div class="command-box">wifiphisher -e "Company_Guest" -p firmware_upgrade</div>
+                    <p>تنشئ AP مزيف باسم شبكة الضيوف للشركة، وتستخدم سيناريو ترقية firmware لسرقة بيانات الموظفين.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>-dE, --deauth-essid - Deauth جماعي</h4>
+                <div class="command-box">wifiphisher -dE "TargetNetwork"</div>
+                <p><strong>الآلية:</strong> تستخدم <code>airodump-ng --essid TargetNetwork</code> لإيجاد جميع BSSIDs التي تحمل هذا الاسم (يمكن أن تكون 3-4 أجهزة). ثم ترسل deauth إلى كل عميل على كل BSSID. هذا مفيد عندما تريد إسقاط شبكة mesh أو شبكة لديها أجهزة متعددة.</p>
+            </div>
+
+            <div class="section">
+                <h4>-dK, --disable-karma - تعطيل KARMA</h4>
+                <div class="command-box">wifiphisher -dK</div>
+                <p><strong>ما هو KARMA:</strong> ثغرة في أنظمة WiFi القديمة (Windows 7, Android 4.x). عندما يبحث العميل عن شبكة محفوظة (مثل "HomeWiFi")، يجيب AP المزيف "نعم، أنا HomeWiFi" حتى لو كان BSSID مختلفًا.</p>
+                
+                <div class="technical-box">
+                    <h4>🔓 كيف يعمل KARMA:</h4>
+                    <ol>
+                        <li>العميل يرسل Probe Request: "HomeWiFi هل أنت هناك؟"</li>
+                        <li>hostapd مع KARMA يرد: "نعم! أنا HomeWiFi"</li>
+                        <li>العميل يتصل تلقائيًا (لأنه يثق في الاسم)</li>
+                        <li>يتم توجيهه إلى captive portal</li>
+                    </ol>
+                    <p><strong>الحدود:</strong> لا يعمل على Windows 10+, iOS 9+, Android 6+ لأنهم يتحققون من BSSID بالإضافة إلى ESSID.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>-wP, --wps-pbc - مراقبة زر WPS</h4>
+                <div class="command-box">wifiphisher -wP</div>
+                <p><strong>الآلية:</strong> تستخدم <code>hostapd_cli wps_pbc</code> لمراقبة إذا ضغط شخص على زر WPS الفعلي في جهاز الراوتر. إذا حدث ذلك، تسمح wifiphisher بالاتصال بدون كلمة مرور وتبدأ MITM attack فورًا. هذا نادر الاستخدام لكنه فعال ضد أجهزة WPS-PBC التي لا تتحقق من MAC address.</p>
+            </div>
+        </div>
+
+        <h2 onclick="toggleSection('phishing')">
+            <span class="expand-icon">▶</span> سيناريوهات Phishing المتقدمة
+        </h2>
+        <div id="phishing" class="section hidden">
+            <h3>🎭 العمق التقني للـ Phishing</h3>
+            
+            <div class="section">
+                <h4>-p, --phishingscenario - اختيار السيناريو</h4>
+                <div class="command-box">wifiphisher -p firmware_upgrade</div>
+                <p><strong>السيناريوهات المتوفرة:</strong></p>
+                <ul style="margin: 10px 20px;">
+                    <li><strong>firmware_upgrade:</strong> يطلب كلمة WiFi لـ "ترقية firmware"</li>
+                    <li><strong>oauth_login:</strong> صفحة تسجيل Google/Facebook مزيفة</li>
+                    <li><strong>network_manager:</strong> يقلد صفحة إعدادات Windows WiFi</li>
+                    <li><strong>wifi_connect:</strong> صفحة "أدخل كلمة مرور WiFi للاتصال"</li>
+                </ul>
+                
+                <p><strong>الآلية:</strong> كل سيناريو هو مجلد في <code>/usr/share/wifiphisher/data/phishing-pages/</code> يحتوي على:</p>
+                <div class="command-box" style="color: #00ff88;">
+index.html          # صفحة phishing<br>
+config.ini          # إعدادات HTTP<br>
+html/               # ملفات CSS/JS/images<br>
+post.php            # معالج POST requests (يسرق كلمات المرور)
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>-pK, --presharedkey - WPA/WPA2 وهمي</h4>
+                <div class="command-box">wifiphisher -e "Secure_WiFi" -pK s3cr3tp4ssw0rd</div>
+                <p><strong>ماذا يحدث تقنيًا:</strong></p>
+                <ul style="margin: 10px 20px;">
+                    <li><code>hostapd.conf</code> يحصل على <code>wpa_passphrase=s3cr3tp4ssw0rd</code></li>
+                    <li>AP يرسل Beacons مع WPA2 enabled</li>
+                    <li>الضحية يدخل كلمة المرور الصحيحة</li>
+                    <li>wifiphisher تقبل الاتصال حتى لو كانت كلمة المرور خاطئة!</li>
+                    <li>تستخدم <code>hostapd_cli</code> لقراءة كلمة المرور التي أدخلها</li>
+                </ul>
+                
+                <div class="example-box">
+                    <strong>💡 التكتيك:</strong>
+                    <div class="command-box">wifiphisher -e "Company_WPA2" -pK Welcome2024 -p network_manager</div>
+                    <p>تنشئ AP WPA2 يبدو شرعيًا، وتستخدم سيناريو Windows Network Manager. معظم الموظفين يثقون في WPA2 ويغرون.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>Lure10 Attack - استغلال Windows Location Service</h4>
+                <div class="command-box">wifiphisher -lC -e "Free_WiFi"</div>
+                <p><strong>الآلية (Phase 1 - Capture):</strong></p>
+                <ol style="margin: 10px 20px;">
+                    <li>تمرر <code>-lC</code> لتخزين BSSIDs المكتشفة في <code>lure10_capture.txt</code></li>
+                    <li>تستخدم <code>airodump-ng --output-format csv -w lure10</code></li>
+                    <li>تستخرج كل BSSID وSSID وchannel وقوة الإشارة</li>
+                </ol>
+                
+                <div class="command-box">wifiphisher -lE lure10_capture.txt</div>
+                <p><strong>الآلية (Phase 2 - Exploit):</strong></p>
+                <ol style="margin: 10px 20px;">
+                    <li>تقرأ ملف <code>lure10_capture.txt</li>
+                    <li>تنشر إطارات Beacon مزيفة لكل BSSID مع GPS coordinates وهمية</li>
+                    <li>أجهزة Windows 10+ التي استخدمت Location Service تقرأ هذه الإطارات</li>
+                    <li>تظن أنها في نفس الموقع الجغرافي وتعرض "موجود في نطاق شبكات معروفة"</li>
+                    <li>تزيد من نسبة اختيار الضحية للشبكة المزيفة تلقائيًا</li>
+                </ol>
+                
+                <div class="technical-box">
+                    <h4>🎯 لماذا Lure10 خطير:</h4>
+                    <p>Windows يخزن "Geolocation database" في <code>%LOCALAPPDATA%\Microsoft\Windows\Location</code>. حتى لو لم تكن الشبكة محفوظة، إذا كان BSSID في قاعدة البيانات الجغرافية، تزيد نسبة الثقة!</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>-pE, --phishing-essid - ESSID مزيف لصفحة Phishing</h4>
+                <div class="command-box">wifiphisher -e "WiFi" -pE "Enter_WiFi_Password"</div>
+                <p><strong>الفرق بين -e و-pE:</strong></p>
+                <ul style="margin: 10px 20px;">
+                    <li><code>-e "WiFi"</code>: اسم الشبكة الذي يراه الضحية (SSID)</li>
+                    <li><code>-pE "Enter_WiFi_Password"</code>: العنوان الذي يظهر في شريط المتصفح (title tag في HTML)</li>
+                </ul>
+                <p>التكتيك: جعل -pE يبدو أكثر رسمية، مثل <code>"WiFi_Network_Authentication"</code>.</p>
+            </div>
+
+            <div class="section">
+                <h4>-pPD, --phishing-pages-directory - دليل مخصص</h4>
+                <div class="command-box">wifiphisher -pPD /home/user/custom_phish/</div>
+                <p><strong>الهيكل المطلوب:</strong></p>
+                <div class="command-box" style="color: #00ff88;">
+/custom_phish/<br>
+├── index.html          # يجب أن يحتوي على &lt;form action="post.php"&gt;<br>
+├── post.php            # يجب أن يرسل POST إلى wifiphiser<br>
+├── config.ini          # [info], [context], [target]<br>
+└── html/               # CSS/JS/images
+                </div>
+            </div>
+        </div>
+
+        <h2 onclick="toggleSection('extensions')">
+            <span class="expand-icon">▶</span> Extensions والهجمات المتقدمة
+        </h2>
+        <div id="extensions" class="section hidden">
+            <h3>🔌 نظام Extensions المعياري</h3>
+            
+            <div class="section">
+                <h4>-nE, --noextensions - تعطيل Extensions</h4>
+                <div class="command-box">wifiphisher -nE</div>
+                <p><strong>ما هي Extensions:</strong> سكريبتات Python في <code>/usr/share/wifiphisher/extensions/</code> تضيف وظائف لـ wifiphisher. الافتراضي: جميع Extensions نشطة.</p>
+                
+                <p>أهم Extensions:</p>
+                <ul style="margin: 10px 20px;">
+                    <li><strong>deauth.py:</strong> الهجوم الأساسي (لا يمكن تعطيله)</li>
+                    <li><strong>dnsmasq.py:</strong> DHCP/DNS server</li>
+                    <li><strong>iptables.py:</strong> إعادة توجيه الحركة</li>
+                    <li><strong>captive_portal.py:</strong> Captive portal detection</li>
+                    <li><strong>roguehostapdinfo.py:</strong> معلومات AP الوهمي</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h4>-hC, --handshake-capture - التحقق من Handshake</h4>
+                <div class="command-box">wifiphisher -hC /home/user/capture.pcap</div>
+                <p><strong>ما يفعله تقنيًا:</strong> يستخدم <code>pyrit</code> أو <code>cowpatty</code> لفحص ملف .pcap للتأكد من أنه يحتوي على:</p>
+                <ul style="margin: 10px 20px;">
+                    <li>Beacon frame (لمعرفة SSID)</li>
+                    <li>4-way handshake أو PMKID</li>
+                    <li>Valid CRC32 (لضمان سلامة الحزم)</li>
+                </ul>
+                <p>مفيد عندما تريد التحقق من handshakes جُمعت بواسطة wifite2 قبل استخدامها في wifiphisher.</p>
+            </div>
+
+            <div class="section">
+                <h4>-cM, --channel-monitor - مراقبة تغيير القناة</h4>
+                <div class="command-box">wifiphisher -cM</div>
+                <p><strong>الآلية:</strong> تستخدم <code>airodump-ng --berlin 1</code> لتحديث القناة كل ثانية. إذا تغيرت قناة target AP أثناء الهجوم، تغير deauth interface تلقائيًا لمطابقة القناة الجديدة. هذا مهم ضد أجهزة mesh أو APs ذكية تغير القناة لتجنب التداخل.</p>
+            </div>
+
+            <div class="section">
+                <h4>-kB, --known-beacons - Beacon Flooding</h4>
+                <div class="command-box">wifiphisher -kB</div>
+                <p><strong>الآلية:</strong> ترسل إطارات Beacon بأسماء شبكات شائعة (Facebook, Google, Microsoft, Starbucks, etc.) كل 100ms. تستخدم قائمة من <code>/usr/share/wifiphisher/data/known_beacons.txt</code>. هدفها:</p>
+                <ul style="margin: 10px 20px;">
+                    <li>إرباك أنظمة كشف IDS</li>
+                    <li>إجبار أجهزة العملاء على إظهار قائمة شبكات أطول</li>
+                    <li>إخفاء AP المزيف الحقيقي بين عشرات الـ Beacons الوهمية</li>
+                </ul>
+                
+                <div class="technical-box">
+                    <h4>⚡ الأداء:</h4>
+                    <p>كل Beacon frame حجمها ~200 bytes. إرسال 100 Beacon/ثانية = 20KB/s. لا يؤثر على أداء AP الحقيقي لكن يزيد من noise floor بـ 2-3 dBm.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 onclick="toggleSection('logging')">
+            <span class="expand-icon">▶</span> التسجيل والملفات
+        </h2>
+        <div id="logging" class="section hidden">
+            <div class="section">
+                <h4>--logging - تسجيل كل شيء</h4>
+                <div class="command-box">wifiphisher --logging</div>
+                <p><strong>ما يسجله:</strong></p>
+                <ul style="margin: 10px 20px;">
+                    <li>جميع الإطارات Beacon/Probe</li>
+                    <li>منع الاتصال (association requests)</li>
+                    <li>POST requests من الضحية</li>
+                    <li>أخطاء hostapd وdnsmasq</li>
+                    <li>Timesamp دقيق (milliseconds)</li>
+                </ul>
+                <p>المخرجات إلى <code>/tmp/wifiphisher.log</code> أو <code>-lP</code>.</p>
+            </div>
+
+            <div class="section">
+                <h4>-lP, --logpath - مسار السجل المخصص</h4>
+                <div class="command-box">wifiphisher --logging -lP /var/log/wifi_attack.log</div>
+                <p><strong>الهيكل:</strong></p>
+                <div class="command-box" style="color: #00ff88;">
+/var/log/wifi_attack.log<br>
+/var/log/wifi_attack.credentials  # POST data<br>
+/var/log/wifi_attack.pcap         # كل الحركة
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>-cP, --credential-log-path - بيانات الاعتماد فقط</h4>
+                <div class="command-box">wifiphisher -cP /home/user/creds.txt</div>
+                <p><strong>الصيغة:</strong></p>
+                <div class="command-box" style="color: #00ff88;">
+[2025-12-23 17:45:32] ESSID: Free_WiFi | BSSID: 00:11:22:33:44:55<br>
+[2025-12-23 17:45:32] PASSWORD: Welcome2024<br>
+[2025-12-23 17:45:32] CLIENT: 192.168.1.100 (AA:BB:CC:DD:EE:FF)
+                </div>
+            </div>
+        </div>
+
+        <h2 onclick="toggleSection('advanced')">
+            <span class="expand-icon">▶</span> الأوامر المتقدمة والسيناريوهات
+        </h2>
+        <div id="advanced" class="section hidden">
+            <div class="section">
+                <h4>🎯 The "Corporate Attack" (هجوم شركات)</h4>
+                <div class="command-box">wifiphisher -e "Corp_Guest" -pK SecurePass2024 -p oauth_login -iI eth0</div>
+                <p>1. AP WPA2 يبدو شرعيًا<br>
+                2. صفحة تسجيل Google OAuth مزيفة<br>
+                3. إنترنت حقيقي عبر Ethernet<br>
+                4. يسرق بيانات OAuth وجلسات SSO</p>
+            </div>
+
+            <div class="section">
+                <h4>💉 The "Silent Phish" (احتيال صامت)</h4>
+                <div class="command-box">wifiphisher -e "Free_WiFi" -nD -p wifi_connect --logging</div>
+                <p>1. لا deauth (تجنب detection)<br>
+                2. ينتظر العملاء يتصلون تلقائيًا<br>
+                3. يسجل كل شيء للتحليل لاحقًا<br>
+                4. يعمل لأسبوع كامل دون تدخل</p>
+            </div>
+
+            <div class="section">
+                <h4>🥷 The "Evil Twin" (التوأم الشرير الكامل)</h4>
+                <div class="command-box">wifiphisher -e "Home_WiFi" -p firmware_upgrade -kB -cM</div>
+                <p>1. نسخة طبق الأصل من الشبكة المنزلية<br>
+                2. 50 Beacon frames وهمية لتمويه<br>
+                3. مراقبة تغيير القناة تلقائيًا<br>
+                4. ترقية firmware تسرق كلمة WiFi الحقيقية</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <button class="button" onclick="showAllSections()">إظهار كل الأقسام</button>
+            <button class="button" onclick="hideAllSections()">إخفاء كل الأقسام</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(id) {
+            const section = document.getElementById(id);
+            const header = section.previousElementSibling;
+            
+            section.classList.toggle('hidden');
+            header.classList.add('expanded');
+        }
+
+        function showAllSections() {
+            document.querySelectorAll('.section').forEach(section => section.classList.remove('hidden'));
+            document.querySelectorAll('h2').forEach(header => header.classList.add('expanded'));
+        }
+
+        function hideAllSections() {
+            document.querySelectorAll('.section').forEach(section => section.classList.add('hidden'));
+            document.querySelectorAll('h2').forEach(header => header.classList.remove('expanded'));
+        }
+
+        document.querySelectorAll('.command-box').forEach(box => {
+            box.addEventListener('click', function() {
+                const text = this.textContent.replace('$ ', '');
+                navigator.clipboard.writeText(text).then(() => {
+                    this.style.background = '#00ff88';
+                    this.style.color = '#0d0d1a';
+                    setTimeout(() => {
+                        this.style.background = '#0d0d1a';
+                        this.style.color = '#00ff88';
+                    }, 500);
+                });
+            });
+        });
+
+        window.addEventListener('load', () => {
+            document.getElementById('interfaces').classList.remove('hidden');
+            document.querySelector('h2[onclick*="interfaces"]').classList.add('expanded');
+        });
+    </script>
+</body>
+</html>
